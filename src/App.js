@@ -12,7 +12,7 @@ import Footer from "./Components/Footer";
 const App = () => {
   return (
     <div className="grid">
-      <BrowserRouter>
+      <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
