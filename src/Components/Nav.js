@@ -23,7 +23,7 @@ const Nav = () => {
             SEARCH
           </div>
           <div>
-            BASKET
+            <Link to="/basket">BASKET</Link>
           </div>
         </div>
       </div>
