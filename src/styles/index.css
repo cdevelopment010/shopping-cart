@@ -1,0 +1,28 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&display=swap';
+
+*, *::before, *::after {
+    margin: 0; 
+    padding: 0; 
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Inter', sans-serif;
+}
+
+li>a {
+    color: inherit;
+}
+
+
+.grid {
+    display: grid; 
+    min-height: 100vh; 
+    max-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
