@@ -26,3 +26,12 @@ li>a {
     max-height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
+
+
+.inherit-color {
+    color: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
