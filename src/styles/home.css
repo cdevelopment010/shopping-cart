@@ -1,4 +1,10 @@
 .home-container {
-    background: white; 
+    background: rgb(216, 211, 211); 
     width: 100%; 
+    height: 100%;
+}
+
+.home-container button {padding: 10px 20px;}
+.home-container button i {
+    margin-left: 20px;
 }
