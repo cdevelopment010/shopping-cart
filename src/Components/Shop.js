@@ -1,15 +1,40 @@
 import { Link } from "react-router-dom";
+import ItemCard from "./ItemCard";
+import '../styles/shop.css'
 
 const Shop = () => {
     return (
-      <div>
-        Shop
+      <div className="shop-container">
+        
+        <div className="grid"> 
+          <div className="sidebar">
+            <span>Components</span>
+            <span>Accessories</span>
+            <span>Pre-builds</span>
+          </div>
+          <div className="items">
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            
+          </div>
+        </div>
 
+    
+          
 
-        <p>
-          Test going to item #1
-        </p>
-        <Link to="/shop/1">Go to Item #1</Link>
       </div>
     );
   }

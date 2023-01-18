@@ -1,0 +1,42 @@
+.item-card {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+    display:grid; 
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 1fr 1fr;
+    gap: 10px; 
+}
+
+.img-container {
+    position: relative; 
+}
+.img-container img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+}
+
+.img-container .overlay {
+    position: absolute; 
+    top: 0; 
+    height: 100%; 
+    width: 100%; 
+    opacity: 0;
+    background: rgba(var(--primary-rgb), 0.5); 
+    transition: 0.1s;
+}
+
+.img-container a {
+    position: absolute; 
+    width: 75%;
+    text-align: center;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.img-container:hover .overlay {
+    opacity: 1;
+}

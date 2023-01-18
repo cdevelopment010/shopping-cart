@@ -11,7 +11,7 @@ import Footer from "./Components/Footer";
 
 const App = () => {
   return (
-    <div className="grid">
+    <div className="grid grid-main">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Nav />
         <Routes>
