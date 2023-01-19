@@ -34,6 +34,18 @@
 }
 
 
+.shop-container .sidebar div {
+    position: relative;
+}
+.shop-container .sidebar ul {
+    width: 90vw;
+    position: absolute; 
+    top: 100%;
+    background: white; 
+    z-index: 1000;
+
+}
+
 @media screen and (min-width: 768px) {
     .shop-container .grid {
         grid-template-columns: 1fr 4fr;
@@ -53,5 +65,8 @@
         height: auto; 
         padding-top: 2rem;
         flex-direction: column;
+    }
+    .shop-container .sidebar ul {
+        width: 100%
     }
 }
