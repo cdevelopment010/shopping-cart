@@ -53,6 +53,7 @@
 .shop-container .sidebar ul li {
     list-style-type: none;
     margin-top: 0.5rem;
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -63,7 +64,7 @@
         align-items: start;
     }
     .shop-container .items {
-        margin-top: 2rem;
+        margin: 2rem;
         width: 80%; 
         display: grid; 
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -80,5 +81,9 @@
     .shop-container .sidebar ul {
         width: 100%;
         position: relative;
+    }
+
+    .shop-container .sidebar ul li {
+        text-align: left;
     }
 }

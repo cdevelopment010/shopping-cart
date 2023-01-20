@@ -26,7 +26,7 @@ const Shop = () => {
         <div className="grid"> 
           <ul className="sidebar">
             <div>
-              <h5 onClick={hideComp}>Components</h5>
+              <h5 onClick={hideComp}>Components <i className={`fa-solid ${ hiddenComponents ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenComponents ? 'hidden' : ''}`}>
                 <li>Motherboard</li>
                 <li>CPU</li>
@@ -38,7 +38,7 @@ const Shop = () => {
               </ul>
             </div>
             <div>
-              <h5 onClick={hideAccessories}>Accessories</h5>
+              <h5 onClick={hideAccessories}>Accessories <i className={`fa-solid ${ hiddenAccessories ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenAccessories ? 'hidden' : ''}`}>
                 <li>Mouse</li>
                 <li>Keyboards</li>
