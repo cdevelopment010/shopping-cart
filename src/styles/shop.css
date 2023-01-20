@@ -31,19 +31,28 @@
     top: 10vh; 
     background: white; 
     z-index: 1000;
+    /* position: relative */
 }
 
 
-.shop-container .sidebar div {
+/* .shop-container .sidebar div {
     position: relative;
-}
+} */
 .shop-container .sidebar ul {
+    padding: 1rem;
     width: 90vw;
     position: absolute; 
     top: 100%;
+    left: 0;
     background: white; 
     z-index: 1000;
+    /* text-align: center; */
 
+}
+
+.shop-container .sidebar ul li {
+    list-style-type: none;
+    margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -65,8 +74,11 @@
         height: auto; 
         padding-top: 2rem;
         flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1.5rem;
     }
     .shop-container .sidebar ul {
-        width: 100%
+        width: 100%;
+        position: relative;
     }
 }

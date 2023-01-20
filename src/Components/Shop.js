@@ -5,11 +5,18 @@ import '../styles/shop.css'
 const Shop = () => {
 
     const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width:768px").matches)
-    const [hiddenComponents, setHiddencomponents] = useState(isMobile);
+    const [hiddenComponents, setHiddenComponents] = useState(isMobile);
+    const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
     
     
     const hideComp = () => {
-      setHiddencomponents(!hiddenComponents)
+      setHiddenAccessories(isMobile ? true : false)
+      setHiddenComponents(!hiddenComponents)
+    }
+    
+    const hideAccessories = () => { 
+      setHiddenComponents(isMobile ? true : false)
+      setHiddenAccessories(!hiddenAccessories)
     }
 
 
@@ -17,20 +24,32 @@ const Shop = () => {
       <div className="shop-container">
         
         <div className="grid"> 
-          <div className="sidebar">
+          <ul className="sidebar">
             <div>
-              <span onClick={hideComp}>Components</span>
+              <h5 onClick={hideComp}>Components</h5>
               <ul className={`${hiddenComponents ? 'hidden' : ''}`}>
                 <li>Motherboard</li>
-                <li>Motherboard</li>
-                <li>Motherboard</li>
-                <li>Motherboard</li>
-                <li>Motherboard</li>
+                <li>CPU</li>
+                <li>Ram</li>
+                <li>Memory</li>
+                <li>Cooling</li>
+                <li>Power Supply</li>
+                {/* <li></li> */}
               </ul>
             </div>
-            <span>Accessories</span>
-            <span>Pre-builds</span>
-          </div>
+            <div>
+              <h5 onClick={hideAccessories}>Accessories</h5>
+              <ul className={`${hiddenAccessories ? 'hidden' : ''}`}>
+                <li>Mouse</li>
+                <li>Keyboards</li>
+                <li>Headsets</li>
+                <li>Stickers</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Pre-builds</h5>
+            </div>
+          </ul>
           <div className="items">
             <ItemCard />
             <ItemCard />
