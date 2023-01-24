@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import '../styles/shop.css'
 
-const Shop = () => {
+const Shop = ({isMobile}) => {
 
-    const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width:768px").matches)
     const [hiddenComponents, setHiddenComponents] = useState(isMobile);
     const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
+
+    console.log(isMobile);
     
+    useEffect(() => {
+      setHiddenComponents(isMobile ? true : false)
+      setHiddenAccessories(isMobile ? true : false)
+    }, [isMobile])
     
     const hideComp = () => {
       setHiddenAccessories(isMobile ? true : false)

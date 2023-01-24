@@ -1,0 +1,58 @@
+[
+        {
+            "id": 1,
+            "name": "ASUS ROG Maximus XIII Motherboard",
+            "description": "The ASUS ROG Maximus XIII is a high-end motherboard designed for gamers and enthusiasts. It features a robust power delivery system and advanced cooling options.",
+            "category": "motherboard",
+            "price": 399.99,
+            "img": "https://example.com/images/motherboard1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Corsair Vengeance RGB Pro RAM",
+            "description": "The Corsair Vengeance RGB Pro RAM is a high-performance memory module with RGB lighting. It is available in various capacities and speeds.",
+            "category": "ram",
+            "price": 79.99,
+            "img": "https://example.com/images/ram1.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Intel Core i9-11900K Processor",
+            "description": "The Intel Core i9-11900K is a powerful processor with a base clock speed of 3.5GHz and a maximum turbo frequency of 5.3GHz. It has 16 cores and 32 threads.",
+            "category": "cpu",
+            "price": 599.99,
+            "img": "https://example.com/images/cpu1.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Seasonic PRIME TX-850 Power Supply",
+            "description": "The Seasonic PRIME TX-850 is a high-efficiency power supply with a 850W capacity. It features a full modular design and a silent mode for quiet operation.",
+            "category": "power supply",
+            "price": 129.99,
+            "img": "https://example.com/images/psu1.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Logitech G Pro Wireless Gaming Mouse",
+            "description": "The Logitech G Pro Wireless Gaming Mouse is a high-performance wireless gaming mouse with a 16000 DPI sensor. It features a lightweight design and customizable buttons.",
+            "category": "mice",
+            "price": 149.99,
+            "img": "https://example.com/images/mouse1.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Corsair K95 RGB Platinum XT Keyboard",
+            "description": "The Corsair K95 RGB Platinum XT is a high-end mechanical keyboard with Cherry MX Speed RGB switches. It features a durable aluminum frame and per-key RGB lighting.",
+            "category": "keyboards",
+            "price": 199.99,
+            "img": "https://example.com/images/keyboard1.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Sennheiser GSP 600 Gaming Headset",
+            "description": "The Sennheiser GSP 600 is a high-performance gaming headset with a closed-back design. It features a noise-cancelling microphone and 7.1 surround sound.",
+            "category": "headset",
+            "price": 249, 
+            "img": ""
+        }
+]

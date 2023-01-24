@@ -4,32 +4,10 @@ import { Link } from "react-router-dom";
 
 import '../styles/nav.css'
 
-const Nav = () => {
+const Nav = ({ isMobile }) => {
 
-    const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width:768px").matches)
+
     const [hiddenNav, setHiddenNav] = useState(isMobile);
-    const [windowWidth, setWindowWidth] = useState(0);
-    const [windowHeight, setWindowHeight] = useState(0);
-    console.log(hiddenNav);
-    
-    let resizeWindow = () => {
-      setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight);
-      setIsMobile(window.matchMedia("(max-width:768px").matches);
-      
-    }
-
-    useEffect(()=> {
-      const timeout = setTimeout(() => {
-        resizeWindow(); 
-        window.addEventListener("resize", resizeWindow); 
-
-      }, 500)
-      return () => {
-        window.removeEventListener("resize", resizeWindow)
-        clearTimeout(timeout);
-      }
-    }, [windowWidth, windowHeight])
 
     useEffect(() => {
       setHiddenNav(isMobile)
