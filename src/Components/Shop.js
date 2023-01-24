@@ -6,21 +6,35 @@ const Shop = ({isMobile}) => {
 
     const [hiddenComponents, setHiddenComponents] = useState(isMobile);
     const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
+    const [data, setData] = useState([])
 
-    console.log(isMobile);
-    
+    const fetchData =  async() => {
+        const data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
+                    .then(res => res.json())
+                    .catch(err => console.log(err)); 
+                    
+        // console.log(data);
+        setData(data);
+    }
+
+    useEffect(() => {
+      fetchData();
+    }, [])
+
     useEffect(() => {
       setHiddenComponents(isMobile ? true : false)
       setHiddenAccessories(isMobile ? true : false)
     }, [isMobile])
     
     const hideComp = () => {
-      setHiddenAccessories(isMobile ? true : false)
+      console.log(isMobile ? true : false)
+      setHiddenAccessories(isMobile ? true : hiddenAccessories)
       setHiddenComponents(!hiddenComponents)
     }
     
     const hideAccessories = () => { 
-      setHiddenComponents(isMobile ? true : false)
+      console.log(isMobile ? true : false)
+      setHiddenComponents(isMobile ? true : hiddenComponents)
       setHiddenAccessories(!hiddenAccessories)
     }
 
@@ -56,21 +70,12 @@ const Shop = ({isMobile}) => {
             </div>
           </ul>
           <div className="items">
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
+            {data.map((item, index) => {
+              return (
+              <ItemCard data={item} key={`item-${index}`}/>
+              )
+
+            })}
             
           </div>
         </div>

@@ -1,7 +1,7 @@
 import '../styles/itemCard.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-const ItemCard = () => {
+const ItemCard = ( {data} ) => {
 
     const [counter, setCounter] = useState(0);
 
@@ -16,14 +16,14 @@ const ItemCard = () => {
      <div className="item-card">
 
         <div className='img-container'>
-            <img  src="" />
+            <img  src="" alt={data.name}/>
             <div className="overlay">
-                <Link to="/shop/123" >View Product Detail</Link>
+                <Link to={`/shop/${data.id}`} >View Product Detail</Link>
             </div>
         </div>
         <div className='d-flex flex-row justify-content-evenly'>
-            <span>Item</span>
-            <span>Price</span>
+            <span title={data.name}>test...</span>
+            <span>{data.price}</span>
         </div>
         <div className='d-flex flex-row justify-content-center'>
             <i className="fa-solid fa-square-minus me-3" onClick={decrement}></i>
