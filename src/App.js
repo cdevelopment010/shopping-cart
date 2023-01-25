@@ -20,6 +20,29 @@ const App = () => {
   const [basket, setBasket] = useState([]); 
 
 
+  const addToBasket = ( pItem ) => {
+    // pass the item through
+    // check if the item is already in the basket
+    let addNew = true;
+    basket.forEach(b => {
+      if (b.id === pItem.id) {
+        b.count++;
+        addNew = false;
+      }
+    }); 
+
+    let vBasket = [...basket];
+    if(addNew)  {
+      let vItem = pItem;
+      vItem.count = 1; 
+      vBasket.push(vItem);
+    }
+    setBasket(vBasket);
+
+  }
+
+
+
 
   let resizeWindow = () => {
     setWindowWidth(window.innerWidth);
@@ -39,13 +62,22 @@ const App = () => {
     }
   }, [windowWidth, windowHeight])
 
+  useEffect(() => {
+    let vBasket = [...basket]; 
+    let count = vBasket.reduce((prev, curr) => {
+      return prev + curr.count;
+    },0)
+    console.log(count);
+    setBasketCount(count);
+  }, [basket])
+
   return (
     <div className="grid grid-main">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
         <Nav isMobile={isMobile}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop isMobile={isMobile}/>} />
+          <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} basket={basket}/>} />
           <Route path="/shop/:id" element={<ItemDetail />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/basket" element={<Checkout title="basket"/>} />

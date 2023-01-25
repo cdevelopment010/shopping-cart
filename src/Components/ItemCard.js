@@ -1,11 +1,34 @@
 import '../styles/itemCard.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-const ItemCard = ( {data} ) => {
+import { useEffect, useState } from 'react';
+const ItemCard = ( {data, addToBasket, basket} ) => {
 
     const [counter, setCounter] = useState(0);
 
+
+    useEffect(() => {
+
+    }, [counter])
+    useEffect(() => {
+        getCurrentCount()
+    }, [basket])
+
+    const getCurrentCount = () => {
+        // let inBasketItem = [...basket.filter(b => b.id === data.id)];
+        // let inBasketItem = basket.reduce((prev, curr) => {
+        //     if (curr.id === data.id) {
+        //         return curr;
+        //     }
+        // },{})
+        // console.log("inBasketItem", inBasketItem)
+        // if (inBasketItem.hasOwnProperty('count') )  {
+        //     console.log("counter", inBasketItem.count);
+        //     // setCounter(inBasketItem[0].count);
+        // }
+    }
+
     const increment = () => {
+        addToBasket(data);
         setCounter(counter+ 1);
     }
     const decrement = () => {
@@ -16,7 +39,7 @@ const ItemCard = ( {data} ) => {
      <div className="item-card">
 
         <div className='img-container'>
-            <img  src="" alt={data.name}/>
+            <img  src={data.img} alt={data.name}/>
             <div className="overlay">
                 <Link to={`/shop/${data.id}`} >View Product Detail</Link>
             </div>
@@ -26,9 +49,9 @@ const ItemCard = ( {data} ) => {
             <span>{data.price}</span>
         </div>
         <div className='d-flex flex-row justify-content-center'>
-            <i className="fa-solid fa-square-minus me-3" onClick={decrement}></i>
+            <i className="fa-solid fa-square-minus me-3 text-red pointer" onClick={decrement}></i>
             <span className='me-3'>{counter}</span>
-            <i className="fa-solid fa-square-plus me-3" onClick={increment}></i>
+            <i className="fa-solid fa-square-plus me-3 text-green pointer" onClick={increment}></i>
         </div>
         
      </div>   

@@ -6,7 +6,8 @@
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 10fr 1fr 1fr;
-    gap: 10px; 
+    gap: 10px;
+    max-width: 250px; 
 }
 
 .img-container {
@@ -24,7 +25,8 @@
     height: 100%; 
     width: 100%; 
     opacity: 0;
-    background: rgba(var(--primary-rgb), 0.5); 
+    background: rgba(var(--primary-rgb), 0.8); 
+   
     transition: 0.1s;
 }
 
@@ -32,11 +34,14 @@
     position: absolute; 
     width: 75%;
     text-align: center;
-    top: 50%; 
+    top: 50%;  
+    color: white;
     left: 50%;
     transform: translate(-50%,-50%);
 }
-
+.img-container a:hover{
+    font-weight: bold;
+}
 .img-container:hover .overlay {
     opacity: 1;
 }

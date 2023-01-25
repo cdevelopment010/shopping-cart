@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import '../styles/shop.css'
 
-const Shop = ({isMobile}) => {
+const Shop = ({isMobile, addToBasket, basket}) => {
 
     const [hiddenComponents, setHiddenComponents] = useState(isMobile);
     const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [filterCurrent, setFilterCurrent] = useState('');
 
-    const fetchData =  async() => {
-        const data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
+    const fetchData =  async(pFilter = null) => {
+        let data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
                     .then(res => res.json())
                     .catch(err => console.log(err)); 
                     
-        // console.log(data);
+        //filter data
+        if (pFilter !== null && pFilter.length > 0) {
+          data = data.filter(d => {return d.category === pFilter.toLowerCase()})
+        }
         setData(data);
     }
 
@@ -38,6 +42,12 @@ const Shop = ({isMobile}) => {
       setHiddenAccessories(!hiddenAccessories)
     }
 
+    const setFilter = ( e ) => {
+      console.log(e.target.innerText)
+      setFilterCurrent(e.target.innerText);
+      fetchData(e.target.innerText);
+    }
+
 
     return (
       <div className="shop-container">
@@ -47,22 +57,22 @@ const Shop = ({isMobile}) => {
             <div>
               <h5 onClick={hideComp}>Components <i className={`fa-solid ${ hiddenComponents ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenComponents ? 'hidden' : ''}`}>
-                <li>Motherboard</li>
-                <li>CPU</li>
-                <li>Ram</li>
-                <li>Memory</li>
-                <li>Cooling</li>
-                <li>Power Supply</li>
-                {/* <li></li> */}
+                <li className={`filter-item ${filterCurrent==='Motherboard' ? 'filter-item-active' : ''}`} onClick={setFilter}>Motherboard <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='CPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>CPU <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Ram' ? 'filter-item-active' : ''}`} onClick={setFilter}>Ram <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Memory' ? 'filter-item-active' : ''}`} onClick={setFilter}>Memory <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Cooling' ? 'filter-item-active' : ''}`} onClick={setFilter}>Cooling <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Power Supply' ? 'filter-item-active' : ''}`} onClick={setFilter}>Power Supply <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='GPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>GPU <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
               </ul>
             </div>
             <div>
               <h5 onClick={hideAccessories}>Accessories <i className={`fa-solid ${ hiddenAccessories ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenAccessories ? 'hidden' : ''}`}>
-                <li>Mouse</li>
-                <li>Keyboards</li>
-                <li>Headsets</li>
-                <li>Stickers</li>
+                <li className={`filter-item ${filterCurrent==='Mouse' ? 'filter-item-active' : ''}`} onClick={setFilter}>Mouse <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Keyboards' ? 'filter-item-active' : ''}`} onClick={setFilter}>Keyboards <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Headsets' ? 'filter-item-active' : ''}`} onClick={setFilter}>Headsets <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Stickers' ? 'filter-item-active' : ''}`} onClick={setFilter}>Stickers <i class="ms-3 fa-regular fa-circle-xmark"></i></li>
               </ul>
             </div>
             <div>
@@ -72,7 +82,7 @@ const Shop = ({isMobile}) => {
           <div className="items">
             {data.map((item, index) => {
               return (
-              <ItemCard data={item} key={`item-${index}`}/>
+              <ItemCard data={item} key={`item-${item.id}`} addToBasket={addToBasket} basket={basket}/>
               )
 
             })}

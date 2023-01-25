@@ -38,6 +38,9 @@
 /* .shop-container .sidebar div {
     position: relative;
 } */
+.shop-container .sidebar h5 {
+    cursor: pointer;
+}
 .shop-container .sidebar ul {
     padding: 1rem;
     width: 90vw;
@@ -50,10 +53,41 @@
 
 }
 
-.shop-container .sidebar ul li {
+.filter-item {
     list-style-type: none;
     margin-top: 0.5rem;
     text-align: center;
+    cursor: pointer;
+    position: relative; 
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-item::before {
+    position: absolute; 
+    content: '';
+    height: 3px; 
+    width: 0px; 
+    top: 100%; 
+    left: 0; 
+    background-color: var(--secondary-color);
+    transition: 0.2s;
+}
+
+.filter-item:hover::before {
+    width: 1rem;
+}
+
+.filter-item.filter-item-active::before {
+    width: 100%; 
+}
+
+.filter-item>i {
+    display: none;
+}
+.filter-item.filter-item-active>i {
+    display:inline-block
 }
 
 @media screen and (min-width: 768px) {
