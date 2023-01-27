@@ -41,6 +41,16 @@ const App = () => {
 
   }
 
+  const removeFromBasket = (pItem) => {
+    basket.forEach(b => {
+      if (b.id === pItem.id) {
+        b.count--;
+      }
+    });
+
+    let newBasket = basket.filter(b => b.count > 0)
+    setBasket(newBasket);
+  }
 
 
 
@@ -77,7 +87,7 @@ const App = () => {
         <Nav isMobile={isMobile}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} basket={basket}/>} />
+          <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
           <Route path="/shop/:id" element={<ItemDetail />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/basket" element={<Checkout title="basket"/>} />

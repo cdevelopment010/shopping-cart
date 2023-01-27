@@ -1,7 +1,7 @@
 import '../styles/itemCard.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-const ItemCard = ( {data, addToBasket, basket} ) => {
+const ItemCard = ( {data, addToBasket, removeFromBasket, basket} ) => {
 
     const [counter, setCounter] = useState(0);
 
@@ -15,16 +15,17 @@ const ItemCard = ( {data, addToBasket, basket} ) => {
 
     const getCurrentCount = () => {
         let inBasketItem = [...basket.filter(b => b.id === data.id)];
-        if (inBasketItem[0] !== undefined && inBasketItem[0].hasOwnProperty('count') )  {
+        if (inBasketItem[0]?.hasOwnProperty('count') )  {
             setCounter(inBasketItem[0].count);
         }
     }
 
     const increment = () => {
         addToBasket(data);
-        setCounter(counter+ 1);
+        // setCounter(counter+ 1);
     }
     const decrement = () => {
+        removeFromBasket(data);
         setCounter( counter-1 > 0 ? counter - 1 : 0);
     }
 

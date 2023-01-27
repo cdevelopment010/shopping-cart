@@ -11,9 +11,12 @@
   - [x] Can't remove filter without going to a different page!
 - [x] Item Cart overlay/link not visible
 - [ ] Create item detail page
-- [ ] Add to basket functionality
-  - [ ] Can add but counter doesn't work
+- [x] Add to basket functionality
+  - [x] Can add but counter doesn't work
 - [x] shops item card stretches when there is only one - set max width
+- [x] Remove from basket
+  - [x] Reduce counter by one, if counter = 0 then delete
+  - [x] if not in basket do nothing
 
 
 

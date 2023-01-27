@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import '../styles/shop.css'
 
-const Shop = ({isMobile, addToBasket, basket}) => {
+const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
 
     const [hiddenComponents, setHiddenComponents] = useState(isMobile);
     const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
@@ -86,7 +86,7 @@ const Shop = ({isMobile, addToBasket, basket}) => {
           <div className="items">
             {data.map((item, index) => {
               return (
-              <ItemCard data={item} key={`item-${item.id}`} addToBasket={addToBasket} basket={basket}/>
+              <ItemCard data={item} key={`item-${item.id}`} addToBasket={addToBasket} basket={basket} removeFromBasket={removeFromBasket}/>
               )
 
             })}
