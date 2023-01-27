@@ -14,17 +14,10 @@ const ItemCard = ( {data, addToBasket, basket} ) => {
     }, [basket])
 
     const getCurrentCount = () => {
-        // let inBasketItem = [...basket.filter(b => b.id === data.id)];
-        // let inBasketItem = basket.reduce((prev, curr) => {
-        //     if (curr.id === data.id) {
-        //         return curr;
-        //     }
-        // },{})
-        // console.log("inBasketItem", inBasketItem)
-        // if (inBasketItem.hasOwnProperty('count') )  {
-        //     console.log("counter", inBasketItem.count);
-        //     // setCounter(inBasketItem[0].count);
-        // }
+        let inBasketItem = [...basket.filter(b => b.id === data.id)];
+        if (inBasketItem[0] !== undefined && inBasketItem[0].hasOwnProperty('count') )  {
+            setCounter(inBasketItem[0].count);
+        }
     }
 
     const increment = () => {
