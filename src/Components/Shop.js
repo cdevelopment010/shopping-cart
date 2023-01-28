@@ -61,22 +61,22 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
             <div>
               <h5 onClick={hideComp}>Components <i className={`fa-solid ${ hiddenComponents ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenComponents ? 'hidden' : ''}`}>
-                <li className={`filter-item ${filterCurrent==='Motherboard' ? 'filter-item-active' : ''}`} onClick={setFilter}>Motherboard <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='CPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>CPU <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Ram' ? 'filter-item-active' : ''}`} onClick={setFilter}>Ram <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Memory' ? 'filter-item-active' : ''}`} onClick={setFilter}>Storage <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Cooling' ? 'filter-item-active' : ''}`} onClick={setFilter}>Cooling <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Power Supply' ? 'filter-item-active' : ''}`} onClick={setFilter}>Power Supply <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='GPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>GPU <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Motherboard' ? 'filter-item-active' : ''}`} onClick={setFilter}>Motherboard <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='CPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>CPU <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Ram' ? 'filter-item-active' : ''}`} onClick={setFilter}>Ram <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Storage' ? 'filter-item-active' : ''}`} onClick={setFilter}>Storage <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Cooling' ? 'filter-item-active' : ''}`} onClick={setFilter}>Cooling <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Power Supply' ? 'filter-item-active' : ''}`} onClick={setFilter}>Power Supply <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='GPU' ? 'filter-item-active' : ''}`} onClick={setFilter}>GPU <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
               </ul>
             </div>
             <div>
               <h5 onClick={hideAccessories}>Accessories <i className={`fa-solid ${ hiddenAccessories ? 'fa-caret-left': 'fa-caret-down'}`}></i></h5>
               <ul className={`${hiddenAccessories ? 'hidden' : ''}`}>
-                <li className={`filter-item ${filterCurrent==='Mouse' ? 'filter-item-active' : ''}`} onClick={setFilter}>Mouse <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Keyboards' ? 'filter-item-active' : ''}`} onClick={setFilter}>Keyboards <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Headsets' ? 'filter-item-active' : ''}`} onClick={setFilter}>Headsets <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
-                <li className={`filter-item ${filterCurrent==='Stickers' ? 'filter-item-active' : ''}`} onClick={setFilter}>Stickers <i className="ms-3 fa-regular fa-circle-xmark"></i></li>
+                <li className={`filter-item ${filterCurrent==='Mouse' ? 'filter-item-active' : ''}`} onClick={setFilter}>Mouse <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Keyboards' ? 'filter-item-active' : ''}`} onClick={setFilter}>Keyboards <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Headsets' ? 'filter-item-active' : ''}`} onClick={setFilter}>Headsets <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Stickers' ? 'filter-item-active' : ''}`} onClick={setFilter}>Stickers <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
               </ul>
             </div>
             <div>
