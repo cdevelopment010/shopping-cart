@@ -9,6 +9,8 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
     const [data, setData] = useState([]);
     const [filterCurrent, setFilterCurrent] = useState('');
 
+  
+
     const fetchData =  async(pFilter = null) => {
         let data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
                     .then(res => res.json())

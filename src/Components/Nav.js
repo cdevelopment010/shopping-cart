@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import '../styles/nav.css'
 
-const Nav = ({ isMobile }) => {
+const Nav = ({ isMobile, basketCount }) => {
 
 
     const [hiddenNav, setHiddenNav] = useState(isMobile);
@@ -45,7 +45,9 @@ const Nav = ({ isMobile }) => {
               </div>
               <div>
                 <Link to="/basket" className="inherit-color" onClick={() => isMobile? setHiddenNav(true):null}>
-                  <i className="fa-solid fa-basket-shopping"></i>
+                  <i className="fa-solid fa-basket-shopping position-relative">
+                    <span className="basket-count">{basketCount}</span>
+                  </i>
                 </Link>
               </div>
             </div>

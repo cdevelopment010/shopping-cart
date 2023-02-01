@@ -84,13 +84,13 @@ const App = () => {
   return (
     <div className="grid grid-main">
       <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
-        <Nav isMobile={isMobile}/>
+        <Nav isMobile={isMobile} basketCount={basketCount}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
           <Route path="/shop/:id" element={<ItemDetail />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/basket" element={<Checkout title="basket"/>} />
+          <Route path="/basket" element={<Checkout title="basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
 
         </Routes>
         <Footer />
