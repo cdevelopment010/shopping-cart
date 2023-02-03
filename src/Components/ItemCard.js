@@ -35,7 +35,7 @@ const ItemCard = ( {data, addToBasket, removeFromBasket, basket} ) => {
         <div className='img-container'>
             <img  src={data.img} alt={data.name}/>
             <div className="overlay">
-                <Link to={`/shop/${data.id}`} >View Product Detail</Link>
+                <Link to={`/shop/${data.id}`} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}>View Product Detail</Link>
             </div>
         </div>
         <div className='d-flex flex-row justify-content-evenly'>

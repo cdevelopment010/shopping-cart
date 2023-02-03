@@ -14,7 +14,7 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
     const fetchData =  async(pFilter = null) => {
         let data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
                     .then(res => res.json())
-                    .catch(err => console.log(err)); 
+                    .catch(err => []); 
                     
         //filter data
         if (pFilter !== null && pFilter.length > 0) {
@@ -86,7 +86,7 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
             </div>
           </ul>
           <div className="items">
-            {data.map((item, index) => {
+            {data.length > 0 && data.map((item, index) => {
               return (
               <ItemCard data={item} key={`item-${item.id}`} addToBasket={addToBasket} basket={basket} removeFromBasket={removeFromBasket}/>
               )
