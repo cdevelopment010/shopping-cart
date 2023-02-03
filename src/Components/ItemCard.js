@@ -35,12 +35,12 @@ const ItemCard = ( {data, addToBasket, removeFromBasket, basket} ) => {
         <div className='img-container'>
             <img  src={data.img} alt={data.name}/>
             <div className="overlay">
-                <Link to={`/shop/${data.id}`} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}>View Product Detail</Link>
+                <Link to={`/shop/${data.id}`}>View Product Detail</Link>
             </div>
         </div>
-        <div className='d-flex flex-row justify-content-evenly'>
-            <span title={data.name}>test...</span>
-            <span>{data.price}</span>
+        <div className='item-name d-flex justify-content-evenly align-item-center'>
+            <span className="truncate-text" title={data.name}>{data.name}</span>
+            <span>£{data.price}</span>
         </div>
         <div className='d-flex flex-row justify-content-center'>
             <i className="fa-solid fa-square-minus me-3 text-red pointer" onClick={decrement}></i>

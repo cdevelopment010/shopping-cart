@@ -7,7 +7,16 @@
     grid-template-columns: 1fr;
     grid-template-rows: 10fr 1fr 1fr;
     gap: 10px;
-    max-width: 250px; 
+    overflow: hidden;
+    /* max-width: 250px;  */
+}
+
+.item-card .truncate-text {
+    width: 80%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .img-container {
@@ -44,4 +53,10 @@
 }
 .img-container:hover .overlay {
     opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .item-card .truncate-text {
+        width: 25ch; 
+    }    
 }
