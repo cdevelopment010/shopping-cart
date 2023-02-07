@@ -9,6 +9,7 @@
     gap: 10px;
     overflow: hidden;
     /* max-width: 250px;  */
+    /* min-width: 200px;  */
 }
 
 .item-card .truncate-text {
