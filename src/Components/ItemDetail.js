@@ -32,6 +32,17 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
         fetchData();
     }, [])
 
+    useEffect(() => {
+        getCurrentCount()
+    }, [basket])
+
+    const getCurrentCount = () => {
+        let inBasketItem = [...basket.filter(b => b.id === item.id)];
+        if (inBasketItem[0]?.hasOwnProperty('count') )  {
+            setCounter(inBasketItem[0].count);
+        }
+    }
+
     const scrollLeft = ( e ) => {
         let slider = e.target.parentElement.querySelector('.slider');
         let newScroll = slider.scrollLeft - 400 > 0 ? slider.scrollLeft - 400 : 0; 
@@ -70,13 +81,13 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
             <div>
                 <div>
                     {/* main image */}
-                    <img src={item.img} alt="Main product" />
+                    <img src={item.img[0].link} alt={item.img[0].title} title={item.img[0].title} />
                 </div>
                 <div>
                     {/* smalled sub images */}
-                    {/* {item.img.map((im, ind) =>{
-                        return <img key={`img-sm-${ind}`} src="" alt={`Product ${ind}`} className="" />
-                    })} */}
+                    {item.img.map((im, ind) =>{
+                        return <img key={`img-sm-${ind}`} src={im.link} alt={`Product ${ind}`} className="small-img" />
+                    })}
                 </div>
             </div>
 

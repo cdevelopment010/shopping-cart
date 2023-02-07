@@ -56,6 +56,13 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+.item-detail .small-img {
+    height: 10vh;
+    width: auto; 
+    border: 1px solid black;
+    margin-left: 10px; 
+}
+
 @media screen and (min-width: 768px) {
     .item-detail h3 {
         margin-left: 10vw; 

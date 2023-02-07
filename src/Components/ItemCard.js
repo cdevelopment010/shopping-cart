@@ -33,7 +33,7 @@ const ItemCard = ( {data, addToBasket, removeFromBasket, basket} ) => {
      <div className="item-card">
 
         <div className='img-container'>
-            <img  src={data.img} alt={data.name}/>
+            <img  src={data.img[0].link} alt={data.name}/>
             <div className="overlay">
                 <Link to={`/shop/${data.id}`}>View Product Detail</Link>
             </div>
