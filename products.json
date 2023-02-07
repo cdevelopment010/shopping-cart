@@ -5,7 +5,7 @@
             "description": "A high-end motherboard for Intel processors with support for Wi-Fi 6, Thunderbolt 4, and multiple M.2 and U.2 NVMe SSDs.",
             "category": "motherboard",
             "price": 1153.03,
-            "img": "https://m.media-amazon.com/images/I/81FD-vyuLaL._AC_SX679_.jpg"
+            "img": ["https://m.media-amazon.com/images/I/81FD-vyuLaL._AC_SX679_.jpg"]
         },
         {
             "id": 2,
