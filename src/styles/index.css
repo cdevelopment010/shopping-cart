@@ -53,6 +53,7 @@ button {
 
 .text-green {color: green}
 .text-red {color: red}
+.text-center {text-align: center;}
 .pointer {cursor: pointer;}
 
 .hidden {display: none !important}

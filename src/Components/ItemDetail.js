@@ -8,7 +8,8 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
     const [item, setItem] = useState([]); 
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [otherProducts, setOtherProducts] = useState([])
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(0);
+    const [mainImg, setMainImg] = useState({}); 
 
     const fetchData = async () => {
         let dataAll = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
@@ -16,7 +17,7 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
                 .catch(err => [])
         let item = dataAll.filter(i => {return i.id === params.id*1})[0]; 
         setItem(item);
-
+        setMainImg(item.img[0]);
         // Filter for related products
         let rProducts = dataAll.filter(d => {return d.category === item.category && d.id !== item.id});
         setRelatedProducts(rProducts); 
@@ -25,21 +26,27 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
         let oProducts = dataAll.filter(d => d.id !== item.id); 
         oProducts.sort(() => Math.random() > 0.5 ? 1 : -1); 
         let oProduct = oProducts.slice(0,10); // limit to 10
-        setOtherProducts(oProduct); 
+        setOtherProducts(oProduct);  
+        
+        
     }
 
     useEffect(()=> {
+        window.scrollTo({top: 0})
         fetchData();
-    }, [])
+        getCurrentCount();
+    }, [params.id])
 
     useEffect(() => {
         getCurrentCount()
-    }, [basket])
+    }, [basket, item])
 
     const getCurrentCount = () => {
         let inBasketItem = [...basket.filter(b => b.id === item.id)];
         if (inBasketItem[0]?.hasOwnProperty('count') )  {
             setCounter(inBasketItem[0].count);
+        } else {
+            setCounter(0);
         }
     }
 
@@ -65,29 +72,38 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
         setCounter( counter-1 > 0 ? counter - 1 : 0);
     }
 
+    const setImage = (e) => {
+        setMainImg(item.img[e.target.id.split("-")[2]])
+    }
+
     return(
         <div className="item-detail">
             <div>
                 <h1>{item.name}</h1>
             
                 {/* Add/remove from basket buttons and show count*/}
-                <div className='d-flex flex-row justify-content-center h-auto'>
+                <div className='d-flex flex-row  h-auto'>
                     <i className="fa-solid fa-square-minus me-3 text-red pointer" onClick={decrement}></i>
                     <span className='me-3'>{counter}</span>
                     <i className="fa-solid fa-square-plus me-3 text-green pointer" onClick={increment}></i>
                 </div>
             </div>
-            {/* Image section */}
             <div>
+                {/* description */}
+                {item.description}
+            </div>
+            {/* Image section */}
+            <div className="img-detail-container">
                 <div>
                     {/* main image */}
-                    <img src={item.img[0].link} alt={item.img[0].title} title={item.img[0].title} />
+                    <img src={mainImg.link} className="main-img" alt={mainImg.title} title={mainImg.title} />
                 </div>
                 <div>
                     {/* smalled sub images */}
-                    {item.img.map((im, ind) =>{
-                        return <img key={`img-sm-${ind}`} src={im.link} alt={`Product ${ind}`} className="small-img" />
-                    })}
+                    {item?.img?.map((im, ind) =>{
+                        return <img key={`img-sm-${ind}`} id={`img-sm-${ind}`} src={im.link} alt={`Product ${ind}`} className={`small-img ${mainImg.link === im.link ? 'active-img' : ''}`} onClick={setImage}/>
+                        })
+                    }
                 </div>
             </div>
 

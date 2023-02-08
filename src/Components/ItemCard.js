@@ -34,9 +34,10 @@ const ItemCard = ( {data, addToBasket, removeFromBasket, basket} ) => {
 
         <div className='img-container'>
             <img  src={data.img[0].link} alt={data.name}/>
-            <div className="overlay">
-                <Link to={`/shop/${data.id}`}>View Product Detail</Link>
-            </div>
+            {/* onClick={window.location.reload} */}
+            <Link className="overlay"  to={`/shop/${data.id}`} >
+                <span >View Product Detail</span>
+            </Link>
         </div>
         <div className='item-name d-flex justify-content-evenly align-item-center'>
             <span className="truncate-text" title={data.name}>{data.name}</span>

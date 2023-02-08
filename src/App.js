@@ -90,7 +90,7 @@ const App = () => {
           <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
           <Route path="/shop/:id" element={<ItemDetail addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/basket" element={<Checkout title="basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
+          <Route path="/basket" element={<Checkout title="Basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
 
         </Routes>
         <Footer />
