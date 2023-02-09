@@ -77,7 +77,7 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
               <ul className={`${hiddenAccessories ? 'hidden' : ''}`}>
                 <li className={`filter-item ${filterCurrent==='Mouse' ? 'filter-item-active' : ''}`} onClick={setFilter}>Mouse <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
                 <li className={`filter-item ${filterCurrent==='Keyboards' ? 'filter-item-active' : ''}`} onClick={setFilter}>Keyboards <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
-                <li className={`filter-item ${filterCurrent==='Headsets' ? 'filter-item-active' : ''}`} onClick={setFilter}>Headsets <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
+                <li className={`filter-item ${filterCurrent==='Headset' ? 'filter-item-active' : ''}`} onClick={setFilter}>Headset <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
                 <li className={`filter-item ${filterCurrent==='Stickers' ? 'filter-item-active' : ''}`} onClick={setFilter}>Stickers <i className="ms-3 fa-regular fa-circle-xmark" onClick={setFilter}></i></li>
               </ul>
             </div>

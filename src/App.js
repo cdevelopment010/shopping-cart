@@ -88,7 +88,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop isMobile={isMobile} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
-          <Route path="/shop/:id" element={<ItemDetail addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket}/>} />
+          <Route path="/shop/:id" element={<ItemDetail addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} isMobile={isMobile}/>} />
           <Route path="/checkout" element={<Checkout basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
           <Route path="/basket" element={<Checkout title="Basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
 

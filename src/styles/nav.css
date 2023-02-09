@@ -158,6 +158,7 @@
 
     .nav-container .desktop-basket a {
         text-align: center;
+        width: 20vw;
     }
     .nav-container .desktop-basket button {
         height: 2rem;

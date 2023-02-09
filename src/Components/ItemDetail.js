@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ItemCard from './ItemCard'; 
 import '../styles/itemDetail.css'
 
-const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
+const ItemDetail =  ({addToBasket, removeFromBasket, basket, isMobile}) => {
     const params = useParams(); 
     const [item, setItem] = useState([]); 
     const [relatedProducts, setRelatedProducts] = useState([]);
@@ -77,18 +77,18 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
     }
 
     return(
-        <div className="item-detail">
-            <div>
+        <div className="item-detail mt-5">
+            <div className="item-detail-header">
                 <h1>{item.name}</h1>
             
                 {/* Add/remove from basket buttons and show count*/}
-                <div className='d-flex flex-row  h-auto'>
+                <div className={`d-flex flex-row h-auto ${isMobile ? '' : 'justify-content-center' }`}>
                     <i className="fa-solid fa-square-minus me-3 text-red pointer" onClick={decrement}></i>
                     <span className='me-3'>{counter}</span>
                     <i className="fa-solid fa-square-plus me-3 text-green pointer" onClick={increment}></i>
                 </div>
             </div>
-            <div>
+            <div className="item-detail-description">
                 {/* description */}
                 {item.description}
             </div>
@@ -107,10 +107,9 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
                 </div>
             </div>
 
-            {/* Description */}
 
             {/* Related Products */}
-            <div>
+            <div className="item-detail-slider-1">
                 <h3 className="mt-5 mb-2">Related Products</h3>
                 <div className="slider-container mb-5">
                     <i className="fa-solid fa-caret-left fa-3x" onClick={scrollLeft}></i>
@@ -126,7 +125,7 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket}) => {
             </div>
 
             {/* Other items */}
-            <div>
+            <div className="item-detail-slider-2">
                 <h3 className="mt-5 mb-2">Products Customers Also Viewed</h3>
                 <div className="slider-container  mb-5">
                     <i className="fa-solid fa-caret-left fa-3x" onClick={scrollLeft}></i>
