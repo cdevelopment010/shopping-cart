@@ -37,6 +37,11 @@
     justify-content: space-between;
 }
 
+.nav {
+
+    justify-content: center;
+}
+
 .icons, .logo, .nav{
     flex-direction: column;
     /* width: 33%; */
@@ -124,4 +129,51 @@
     .icons {
         justify-content: end;
     }
+
+    .nav-container .desktop-basket {
+        height: 100vh; 
+        width: 0vw; 
+        background: white;
+        position: absolute; 
+        top: 0; 
+        right: 0; 
+        overflow-y: auto; 
+        color: black;
+    }
+
+    .nav-container .desktop-basket.visible {
+        animation: slide-in 0.3s forwards 1
+    }
+    .nav-container .desktop-basket.invisible {
+        width: 30vw;
+        animation: slide-out 0.3s forwards 1
+    }
+
+    .nav-container .desktop-basket > i {
+        position: fixed; 
+        right: 20px; 
+        top: 20px; 
+        font-size: 1.5rem;
+    }
+
+    .nav-container .desktop-basket a {
+        text-align: center;
+    }
+    .nav-container .desktop-basket button {
+        height: 2rem;
+        width: 80%;
+    }
+}
+
+@keyframes slide-in {
+    to {
+        width: 30vw; 
+    }
+    
+}
+@keyframes slide-out {
+    to {
+        width: 0vw; 
+    }
+    
 }
