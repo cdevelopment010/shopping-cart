@@ -93,10 +93,10 @@
             "slider2 slider2"
     }
 
-    .item-detail .img-detail-container .main-img {
+    /* .item-detail .img-detail-container .main-img {
         width: auto; 
 
-    }
+    } */
 
     .item-detail-header {
         grid-area: header;
