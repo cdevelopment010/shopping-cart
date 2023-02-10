@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import '../styles/shop.css'
+import { useParams } from "react-router-dom";
 
 const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
 
@@ -8,6 +9,7 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
     const [hiddenAccessories, setHiddenAccessories] = useState(isMobile);
     const [data, setData] = useState([]);
     const [filterCurrent, setFilterCurrent] = useState('');
+    const params = useParams(); 
 
   
 
@@ -19,6 +21,18 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
         //filter data
         if (pFilter !== null && pFilter.length > 0) {
           data = data.filter(d => {return d.category === pFilter.toLowerCase()})
+        }
+        setData(data);
+    }
+    const fetchData2 =  async(pFilter = null) => {
+        let data = await fetch('https://raw.githubusercontent.com/cdevelopment010/shopping-cart/main/public/products.json')
+                    .then(res => res.json())
+                    .catch(err => []); 
+                    
+        //filter data
+        if (pFilter !== null && pFilter.length > 0) {
+          data = data.filter(d => {return d.category.toLowerCase().includes(pFilter.toLowerCase()) | d.name.toLowerCase().includes(pFilter.toLowerCase()) | d.description.toLowerCase().includes(pFilter.toLowerCase())})
+          console.log(data);
         }
         setData(data);
     }
@@ -35,6 +49,10 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
       setHiddenComponents(isMobile ? true : false)
       setHiddenAccessories(isMobile ? true : false)
     }, [isMobile])
+
+    useEffect(() => {
+      fetchData2(params.searchTerm)
+    },[params.searchTerm])
     
     const hideComp = () => {
       console.log(isMobile ? true : false)

@@ -91,6 +91,7 @@ const App = () => {
           <Route path="/shop/:id" element={<ItemDetail addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} isMobile={isMobile}/>} />
           <Route path="/checkout" element={<Checkout basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
           <Route path="/basket" element={<Checkout title="Basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
+          <Route path="/search/:searchTerm" element={<Shop title="Basket" basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket}/>} />
 
         </Routes>
         <Footer />

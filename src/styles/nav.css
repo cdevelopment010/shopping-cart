@@ -113,6 +113,14 @@
 }
 
 
+.nav-container input {
+    opacity: 0;
+    margin-right: 0.5rem
+}
+.nav-container input:focus, .nav-container input:focus-within {
+    opacity: 1;
+}
+
 
 @media screen and (min-width: 768px) {
     .icons, .logo, .nav{

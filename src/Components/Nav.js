@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ItemCard from './ItemCard';
 
 
@@ -8,9 +8,11 @@ import '../styles/nav.css'
 const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) => {
 
 
+    const nav = useNavigate(); 
     const [hiddenNav, setHiddenNav] = useState(isMobile);
     const [desktopBasketVisible, setDesktopBasketVisible] = useState(false);
     const [total, setTotal] = useState(0); 
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
       setHiddenNav(isMobile)
@@ -19,6 +21,14 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
     useEffect(()=> {
       calculateTotal()
     },[basket])
+
+    useEffect(() => {
+      if (searchTerm.length === 0) {
+        nav('/shop')
+      } else {
+        nav('/search/'+searchTerm);
+      }
+    }, [searchTerm])
 
     const toggleNav = () => {
       setHiddenNav(!hiddenNav);
@@ -34,6 +44,10 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
       }, 0)
       console.log("sum", sum); 
       setTotal(sum); 
+    }
+
+    const updateSearch = (e) => {
+      setSearchTerm(e.target.value);
     }
 
     return (
@@ -59,8 +73,9 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
                 </li>
             </ul>
             <div className="icons">
-              <div>
-              <i className="fa-solid fa-magnifying-glass"></i>
+              <div className="d-flex flex-row flex-nowrap align-item-center">
+                <input id="search" type="text" value={searchTerm} onChange={updateSearch} />
+                <i className="fa-solid fa-magnifying-glass" onClick={() => document.getElementById("search").focus()}></i>
               </div>
               <div>
                 {isMobile &&
