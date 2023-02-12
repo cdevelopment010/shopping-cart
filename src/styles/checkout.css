@@ -20,3 +20,14 @@
     font-size: 1.75rem
 
 }
+
+.checkout .btn-container {
+    width: 80%; 
+    margin-inline: auto;
+
+}
+
+.checkout button {
+    height: 2rem;
+    width: min(20vw,80%); 
+}

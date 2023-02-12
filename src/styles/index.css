@@ -90,3 +90,13 @@ button {
 .position-relative {position: relative}
 
 .h-auto{height: auto}
+
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    /* background-color: rgba(37, 32, 32, 0.75); */
+    background-color: var(--secondary-hover-color);
+}

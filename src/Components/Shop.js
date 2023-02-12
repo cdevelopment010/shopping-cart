@@ -51,7 +51,7 @@ const Shop = ({isMobile, addToBasket, removeFromBasket, basket}) => {
     }, [isMobile])
 
     useEffect(() => {
-      fetchData2(params.searchTerm)
+      fetchData2(params.searchTerm); 
     },[params.searchTerm])
     
     const hideComp = () => {

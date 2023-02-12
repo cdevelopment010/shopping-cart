@@ -37,6 +37,10 @@
     justify-content: space-between;
 }
 
+.icons  i {
+    cursor: pointer;
+}
+
 .nav {
 
     justify-content: center;
@@ -115,10 +119,12 @@
 
 .nav-container input {
     opacity: 0;
-    margin-right: 0.5rem
+    width: 0; 
 }
 .nav-container input:focus, .nav-container input:focus-within {
     opacity: 1;
+    width: 100%;
+    margin-right: 0.5rem
 }
 
 
@@ -166,6 +172,9 @@
 
     .nav-container .desktop-basket a {
         text-align: center;
+        /* width: 20vw; */
+    }
+    .nav-container .desktop-basket .btn {
         width: 20vw;
     }
     .nav-container .desktop-basket button {

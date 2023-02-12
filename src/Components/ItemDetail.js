@@ -109,7 +109,7 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket, isMobile}) => {
 
 
             {/* Related Products */}
-            <div className="item-detail-slider-1">
+            <div className={`item-detail-slider-1 ${relatedProducts.length === 0 ? 'd-none': ''}`}>
                 <h3 className="mt-5 mb-2">Related Products</h3>
                 <div className="slider-container mb-5">
                     <i className="fa-solid fa-caret-left fa-3x" onClick={scrollLeft}></i>
@@ -125,7 +125,7 @@ const ItemDetail =  ({addToBasket, removeFromBasket, basket, isMobile}) => {
             </div>
 
             {/* Other items */}
-            <div className="item-detail-slider-2">
+            <div className={`item-detail-slider-2 ${otherProducts.length === 0 ? 'd-none' : ''}`}>
                 <h3 className="mt-5 mb-2">Products Customers Also Viewed</h3>
                 <div className="slider-container  mb-5">
                     <i className="fa-solid fa-caret-left fa-3x" onClick={scrollLeft}></i>

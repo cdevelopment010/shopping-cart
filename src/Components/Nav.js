@@ -43,11 +43,20 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
         return prev + (curr.price * curr.count); 
       }, 0)
       console.log("sum", sum); 
-      setTotal(sum); 
+      setTotal(sum.toFixed(2)); 
     }
 
     const updateSearch = (e) => {
       setSearchTerm(e.target.value);
+    }
+
+    const enterPressed = (e) => {
+      if (e.keyCode === 13) {
+        setHiddenNav(!hiddenNav);
+
+      } else {
+        return;
+      }
     }
 
     return (
@@ -74,7 +83,7 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
             </ul>
             <div className="icons">
               <div className="d-flex flex-row flex-nowrap align-item-center">
-                <input id="search" type="text" value={searchTerm} onChange={updateSearch} />
+                <input id="search" type="text" value={searchTerm} onChange={updateSearch} onKeyUp={enterPressed}/>
                 <i className="fa-solid fa-magnifying-glass" onClick={() => document.getElementById("search").focus()}></i>
               </div>
               <div>
@@ -110,7 +119,7 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
                   </div>
 
                   {/* checkout button */}
-                  <Link to="/checkout" onClick={desktopBasket}><button>Checkout</button></Link>
+                  <Link to="/checkout" className="btn" onClick={desktopBasket}><button>Checkout</button></Link>
                 </div>
           </div>
         

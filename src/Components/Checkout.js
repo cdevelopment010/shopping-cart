@@ -15,8 +15,12 @@ const Checkout = ( {title = "Checkout", basket, addToBasket, removeFromBasket} )
       let sum = basket.reduce((prev, curr) => {
         return prev + (curr.price * curr.count); 
       }, 0)
-      console.log("sum", sum); 
-      setTotal(sum); 
+      console.log("sum", sum.toFixed(2)); 
+      setTotal(sum.toFixed(2)); 
+    }
+
+    const fakeShopAlert = () => {
+      alert("This isn't a real shop! You can't checkout and buy items.")
     }
 
     return (
@@ -35,6 +39,10 @@ const Checkout = ( {title = "Checkout", basket, addToBasket, removeFromBasket} )
 
         <div className="total">
           Total: £<span>{total}</span>
+        </div>
+
+        <div className="btn-container mt-5 mb-5">
+          <button onClick={fakeShopAlert}>Checkout</button>
         </div>
       </div>
     );

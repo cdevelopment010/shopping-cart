@@ -1,10 +1,10 @@
 # Tasks to complete
 
 - [x] refactor isMobile state
-- [ ] Basket
-  - [ ] pad price
-  - [ ] button
-  - [ ] slide in version for desktop
+- [x] Basket
+  - [x] pad price
+  - [x] button
+  - [x] slide in version for desktop
 - [ ] JSON file
   - [ ] Pre-build example
 - [x] style active/hover state for filter
@@ -21,8 +21,8 @@
 - [x] Remove from basket
   - [x] Reduce counter by one, if counter = 0 then delete
   - [x] if not in basket do nothing
-- [ ] Item detail grid (mobile & desktop layout)
-- [ ] search functionality
+- [x] Item detail grid (mobile & desktop layout)
+- [x] search functionality
 - [ ] understand why I needed this - ```item?.img?.map```
 
 
