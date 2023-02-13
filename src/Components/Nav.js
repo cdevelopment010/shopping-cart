@@ -35,7 +35,13 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
     }
 
     const desktopBasket = () => {
-      setDesktopBasketVisible(!desktopBasketVisible);
+      let el = document.getElementById("desktop-basket");
+      if(document.activeElement === el) {
+        el.blur()
+      } else {
+        el.focus()
+      }
+      // setDesktopBasketVisible(!desktopBasketVisible);
     }
 
     const calculateTotal = () => {
@@ -51,8 +57,8 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
     }
 
     const enterPressed = (e) => {
-      if (e.keyCode === 13) {
-        setHiddenNav(!hiddenNav);
+      if (e.keyCode === 13 && isMobile) {
+        setHiddenNav(true);
 
       } else {
         return;
@@ -105,8 +111,10 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
             </div>
           </div>
 
-          <div className={`desktop-basket ${desktopBasketVisible ? 'visible' : 'invisible'} ${isMobile ? 'd-none' : ''}`}>
-                <i className={`fa-solid fa-times ${desktopBasketVisible ? '' : 'd-none' }`} onClick={desktopBasket}></i>
+          {/* <div id="desktop-basket" className={`desktop-basket ${desktopBasketVisible ? 'visible' : 'invisible'} ${isMobile ? 'd-none' : ''}`}> */}
+          <div id="desktop-basket" className={`desktop-basket  ${isMobile ? 'd-none' : ''}`} tabIndex="1">
+                {/* <i className={`fa-solid fa-times ${desktopBasketVisible ? '' : 'd-none' }`} onClick={desktopBasket}></i> */}
+                <i className={`fa-solid fa-times`} onClick={desktopBasket}></i>
                 <div className="grid mt-5 mb-5 justify-content-center gap-3">
                   <h3 className="text-center">Basket</h3>
                   {basket.length > 0 && basket.map((b,ind) => {
@@ -119,7 +127,7 @@ const Nav = ({ isMobile, basketCount, basket, addToBasket, removeFromBasket }) =
                   </div>
 
                   {/* checkout button */}
-                  <Link to="/checkout" className="btn" onClick={desktopBasket}><button>Checkout</button></Link>
+                  <Link to="/checkout" className="btn" onClick={() => {document.getElementById("desktop-basket").blur()}}><button>Checkout</button></Link>
                 </div>
           </div>
         
